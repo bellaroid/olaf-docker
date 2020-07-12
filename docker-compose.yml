@@ -3,30 +3,27 @@ services:
   olaf:
     build:
       context: .
-    volumes:
-      - .:/opt/olaf
     ports:
       - "5000:5000"
+    env_file:
+      - olaf.env
+    environment:
+      - APP_URL=0.0.0.0
+      - APP_PORT=5000
+      - APP_RELOAD=False
+      - APP_DEBUG=False
+      - MONGODB_HOST=mongodb1
+      - MONGODB_REPLICASET_ID=rs0
+      - MONGODB_REPLICASET_ENABLE=TRUE
+      - MONGODB_TIMEOUT=30000
     depends_on:
-      - mongo1
-      - mongo2
-  mongo1:
-    hostname: mongo1
-    container_name: localmongo1
+      - mongodb1
+      - mongodb2
+  mongodb1:
     image: mongo:latest
-    expose:
-    - 27017
-    ports:
-      - 27011:27017
-    restart: always
+    restart: on-failure
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
-  mongo2:
-    hostname: mongo2
-    container_name: localmongo2
+  mongodb2:
     image: mongo:latest
-    expose:
-    - 27017
-    ports:
-    - 27012:27017
-    restart: always
+    restart: on-failure
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
