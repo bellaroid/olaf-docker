@@ -11,4 +11,4 @@
 In order to run the shell or have control over the Olaf service (starting it and stopping it at will), you may do the following:
 - Run `docker-compose down` to stop and remove all running services
 - Run `docker-compose run --entrypoint="/bin/bash" --service-ports olaf`
-- Once inside the container, just run `python olaf-bin.py` to start the shell with `python -i shell.py`
+- Once inside the container, just run `python olaf-bin.py` to start the web server, or `python -i shell.py` to start the shell.
