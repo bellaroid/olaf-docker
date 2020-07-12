@@ -17,5 +17,4 @@ rs.initiate(
 )
 EOF
 echo "Replica Set Created"
-mongod --replSet rs0 --port 27017 --bind_ip mongodb1 --dbpath /srv/mongodb/rs0  --oplogSize 128
 python3 /opt/olaf/olaf-bin.py
