@@ -22,8 +22,8 @@ services:
   mongodb1:
     image: mongo:latest
     restart: on-failure
-    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--logpath", "/var/log/mongodb/mongo.log" ]
   mongodb2:
     image: mongo:latest
     restart: on-failure
-    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--logpath", "/var/log/mongodb/mongo.log" ]

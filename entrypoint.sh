@@ -1,7 +1,7 @@
 #!/bin/bash
 until mongo --host mongodb1 --eval "print(\"Waiting for connection...\")"
 do
-    sleep 2
+  sleep 2
 done
 echo "Connection Ready"
 echo "Initializing Replica Set"
