@@ -12,6 +12,7 @@ services:
       - APP_PORT=5000
       - APP_RELOAD=False
       - APP_DEBUG=False
+      - EXTRA_ADDONS=/opt/addons
       - MONGODB_HOST=mongodb1
       - MONGODB_REPLICASET_ID=rs0
       - MONGODB_REPLICASET_ENABLE=TRUE
@@ -19,6 +20,8 @@ services:
     depends_on:
       - mongodb1
       - mongodb2
+    volumes:
+      - ./addons:/opt/addons
   mongodb1:
     image: mongo:latest
     restart: on-failure

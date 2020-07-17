@@ -1,1 +1,3 @@
 olaf.env
+addons/*
+!addons/.gitkeep
