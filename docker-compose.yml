@@ -23,10 +23,10 @@ services:
     volumes:
       - ./addons:/opt/addons
   mongodb1:
-    image: mongo:latest
+    image: mongo:4.4
     restart: on-failure
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--logpath", "/var/log/mongodb/mongo.log" ]
   mongodb2:
-    image: mongo:latest
+    image: mongo:4.4
     restart: on-failure
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--logpath", "/var/log/mongodb/mongo.log" ]
